@@ -79,8 +79,8 @@ class Checker:
 
 
 check = Checker(
-    threads   = 3,
-    length    = 3,
+    threads   = 50,
+    length    = 3, #username length
     proxyfile = './proxies.txt'
 )
 
