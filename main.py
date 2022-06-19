@@ -30,12 +30,16 @@ class Checker:
         
         return username
     
-    def get_xcrsf_token(self):
+    def get_xcrsf_token(self, proxy):
         req = self.session.get(
                 url = "https://accounts.snapchat.com/accounts/signup?client_id=ads-api&referrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true",
                 headers = {
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
                 },
+                proxies = {
+                    'http': f'http://{proxy}',
+                    'https': f'http://{proxy}'
+                }
             ) 
         
         token = req.cookies.get_dict()["xsrf_token"]
@@ -53,7 +57,7 @@ class Checker:
         
         try:
             username = self.get_username()
-            xcsrf_token = self.get_xcrsf_token()
+            xcsrf_token = self.get_xcrsf_token(proxy)
 
             req = self.session.post(
                 url = "https://accounts.snapchat.com/accounts/get_username_suggestions", 
