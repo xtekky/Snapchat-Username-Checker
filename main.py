@@ -49,6 +49,8 @@ class Checker:
         threading.Lock().release()
 
     def check_username(self):
+        proxy = random.choice(self.proxies)
+        
         try:
             username = self.get_username()
             xcsrf_token = self.get_xcrsf_token()
@@ -58,7 +60,11 @@ class Checker:
                 data = {
                     "requested_username": username, 
                     "xsrf_token": xcsrf_token
-                    }
+                },
+                proxies = {
+                    'http': f'http://{proxy}',
+                    'https': f'http://{proxy}'
+                }
                 )   
             
             if req.json()["reference"]["status_code"] == 0:
