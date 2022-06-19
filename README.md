@@ -44,7 +44,7 @@ Love ❌ code ✅
 ## 🚀・Setup Twitch Acc Gen
 
 ```sh-session
-> downloas zip file>
+> download zip file
 > add proxies 
 > run main.py
 ```
