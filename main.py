@@ -7,7 +7,7 @@ class Checker:
         self.length = length
         self.hook = webhook
         self.start = time.time()
-        # proxies      = open('proxies.txt', 'r').read().splitlines()
+        self.proxies      = open('proxies.txt', 'r').read().splitlines()
 
         self.hits = 0
         self.fails = 0
@@ -60,7 +60,7 @@ class Checker:
         while True:
             try:
                 username = self.username()
-                proxy = "m00nd4rk:m00nd4rk@geo.iproyal.com:12323"
+                proxy = random.choice(self.proxies)
 
                 req = requests.post(
                     url="https://app.snapchat.com/loq/suggest_username_v3",
