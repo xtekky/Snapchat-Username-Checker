@@ -1,3 +1,5 @@
+<h2 align="center">SERVER GOT TERMED JOIN NEW ONE <a href="https://discord.gg/fs6V94d8">https://discord.gg/fs6V94d8</a></h2>
+
 <h1 align="center">
   Snapchat Username Checker 👻
 </h1>
